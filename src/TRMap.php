@@ -67,11 +67,20 @@ class TRMap extends Field
 
     public function resolve($resource, $attribute = null)
     {
-        if ($resource->getAttribute('latitude')) {
-            $this->latitude(floatval($resource->getAttribute('latitude')));
-        }
-        if ($resource->getAttribute('longitude')) {
-            $this->longitude(floatval($resource->getAttribute('longitude')));
+        if (is_array($resource)) {
+            if ($resource['latitude']) {
+                $this->latitude(floatval($resource['latitude']));
+            }
+            if ($resource['longitude']) {
+                $this->longitude(floatval($resource['longitude']));
+            }
+        } else {
+            if ($resource->getAttribute('latitude')) {
+                $this->latitude(floatval($resource->getAttribute('latitude')));
+            }
+            if ($resource->getAttribute('longitude')) {
+                $this->longitude(floatval($resource->getAttribute('longitude')));
+            }
         }
     }
 }
