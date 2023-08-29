@@ -45,19 +45,19 @@ TRZipCode::make('Zip Code'), // Zip Code Filed
 TRAddress::make('Address'), // Autocomplete address field
 ```
 
-Add the use declaration to your resource and use the panel with all fileds:
+Add the use declaration to your resource and use the panel with all fields:
 
 ```php
 use Trinityrank\GoogleMapWithAutocomplete\TRLocation;
 
-TRLocation::make('Location'), // All fileds in panel with required rule
+TRLocation::make('Location'), // All fields in panel with required rule
 ```
 
 ![Image of character counter](docs/screenshot-fields.png)
 
 ### Customize Fields
 
-Add custom latitude, longitude and zoom values for starting point
+Add custom latitude, longitude and zoom values for starting point:
 
 ```php
 TRMap::make('Map')
@@ -66,7 +66,7 @@ TRMap::make('Map')
     ->zoom('zoom'),
 ```
 
-Hide latitude and longitude field
+Hide latitude and longitude field:
 
 ```php
 TRMap::make('Map')
@@ -74,4 +74,11 @@ TRMap::make('Map')
     ->hideLongitude(),
 ```
 
-You can add any nova basic methods to fileds (Showing / Hiding, Validation ... ).
+Prevent form submission when pressing the enter key in a Nova model:
+
+```php
+TRAddress::make('Address')
+    ->preventEnter(),
+```
+
+You can add any nova basic methods to fields (Showing / Hiding, Validation ... ).

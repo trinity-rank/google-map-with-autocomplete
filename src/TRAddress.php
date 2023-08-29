@@ -11,4 +11,9 @@ class TRAddress extends Field
      * @var string
      */
     public $component = 'tr-address';
+
+    public function preventEnter()
+    {
+        return $this->withMeta(['preventEnter' => true]);
+    }
 }

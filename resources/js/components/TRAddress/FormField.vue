@@ -11,6 +11,7 @@
                 :class="errorClasses"
                 @place_changed="setPlace"
                 autocomplete="nope"
+                @keypress.enter="preventEnter"
             />
         </template>
     </DefaultField>
@@ -26,7 +27,8 @@ export default {
 
     data() {
         return {
-            value: null
+            value: null,
+            preventEnter: null
         }
     },
 
@@ -57,6 +59,9 @@ export default {
          */
         fill(formData) {
             formData.append(this.field.attribute, this.value || '')
+        },
+        preventEnter(event) {
+            this.field.preventEnter && event.preventDefault();
         },
         setPlace(place) {
             for (const component of place.address_components) {
